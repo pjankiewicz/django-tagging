@@ -28,14 +28,6 @@ def parse_tag_input(input):
 
     input = force_unicode(input)
 
-    # Special case - if there are no commas or double quotes in the
-    # input, we don't *do* a recall... I mean, we know we only need to
-    # split on spaces.
-    if u',' not in input and u'"' not in input:
-        words = list(set(split_strip(input, u' ')))
-        words.sort()
-        return words
-
     words = []
     buffer = []
     # Defer splitting of non-quoted sections until we know if there are
